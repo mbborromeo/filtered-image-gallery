@@ -1,6 +1,4 @@
 ( function(){ //IIFE means this will immediately invoke
-    console.log("IIFE");
-    
     var $tilePlaceholder = $("#tile-placeholder");
     var $tiles = $("#tile-placeholder .tile"); //store all tiles
     var $buttons = $("#tile-buttons"); //buttons div
@@ -13,17 +11,6 @@
         console.log( "tags is: " + tags );
 
         if( tags ){ //if elements actually has tags value
-            /*
-            var tagsSplittedIntoArray = tags.split(","); //plain JS split()
-            console.log( "tagsSplittedIntoArray is: " + tagsSplittedIntoArray );
-            tagsSplittedIntoArray.forEach( function(t){
-                if( tagged[t] == null ){
-                    tagged[t] = [];
-                }
-                tagged[t].push( currentTile );
-            } );
-            */
-            
             //use .trim() to remove whitespace from beginning and end of string
             tags.split(",").forEach( function(t){
                 console.log("tags split forEach tagged[t] is " + tagged[t] );
@@ -36,13 +23,8 @@
         }
     } );
     
-    
     //if you want to order tags in tagged object alphabetically, may have to use array instead of object
-    //as tagged.sort() does not work...
-    
-    
-    //console.log( "Count of tagged['Responsive Front End Web Development'] is: " + tagged["Responsive Front End Web Development"].length );
-    //$buttons.append( tagged["Web Design"] );
+    //as tagged.sort() will not work...
     
     /* Create buttons */
     //buttons 'Show All' code
@@ -70,6 +52,6 @@
                     $tiles.hide().filter( tagged[tagName] ).show(); 
                 }//end click
             }).appendTo( $buttons );      
-    });//end anon function/end each
+    });//end anonymous function/end each
     
 }() );
